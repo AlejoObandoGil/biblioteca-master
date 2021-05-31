@@ -1,6 +1,7 @@
 <?php 
 
 	include('conexion.php');
+    
 	$objeto = new Conexion();
 	$conexion = $objeto->Conectar();
 
