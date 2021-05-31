@@ -1,8 +1,16 @@
+<?php
+    session_start();
+    
+    include ("conexion.php");
+    
+    $con=conectar();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>E Store - eCommerce HTML Template</title>
+        <title>EsBook</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="eCommerce HTML Template Free Download" name="keywords">
         <meta content="eCommerce HTML Template Free Download" name="description">
@@ -52,7 +60,7 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="index.html" class="nav-item nav-link">Inicio</a>
+                            <a href="inicio.html" class="nav-item nav-link">Inicio</a>
                             <a href="product-list.html" class="nav-item nav-link">Libros</a>
                             <a href="cart.html" class="nav-item nav-link">Carrito de compras</a>
                             <a href="checkout.html" class="nav-item nav-link">Pago</a>
@@ -60,7 +68,7 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Mas paginas</a>
                                 <div class="dropdown-menu">
-                                    <a href="wishlist.html" class="dropdown-item">Buscar Libros</a>
+                                    <a href="buscar_libro.html" class="dropdown-item">Buscar Libros</a>
                                     <a href="crear_libro.html" class="dropdown-item">Crear Libro</a>                                    
                                     <a href="login.html" class="dropdown-item">Iniciar sesión & Registrarse</a>
                                     <!-- <a href="contact.html" class="dropdown-item">Contactenos</a> -->
@@ -95,8 +103,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="search">
-                            <input type="text" placeholder="Buscar...">
-                            <button><i class="fa fa-search"></i></button>
+                            <form method="POST" action="buscar_libro.php">
+                                <input type="text" name='titulo' placeholder="Buscar...">
+                                <button><i class="fa fa-search"></i></button>
+                            </form>
                         </div>
                     </div>
                     <div class="col-md-3">
