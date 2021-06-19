@@ -1,10 +1,4 @@
-<?php
-    session_start();
-    
-    include ("conexion.php");
-    
-    $con=conectar();
-?>
+<?php include ("conexion_bd.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +62,7 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Mas paginas</a>
                                 <div class="dropdown-menu">
-                                    <a href="buscar_libro.html" class="dropdown-item">Buscar Libros</a>
+                                    <a href="buscar_librohtml.php" class="dropdown-item">Buscar Libros</a>
                                     <a href="crear_librohtml.php" class="dropdown-item">Crear Libro</a>                                    
                                     <a href="login.html" class="dropdown-item">Iniciar sesión & Registrarse</a>
                                     <!-- <a href="contact.html" class="dropdown-item">Contactenos</a> -->
@@ -103,8 +97,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="search">
-                            <form method="POST" action="buscar_libro.php">
-                                <input type="text" name='titulo' placeholder="Buscar...">
+                            <form method="POST" action="buscar_librohtml.php">
+                                <input type="text" name='busqueda' placeholder="Buscar...">
                                 <button><i class="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -148,124 +142,58 @@
                                 <table class="table table-bordered">
                                     <thead class="thead-dark">
                                         <tr>
+                                            <th>Portada</th>
+                                            <th>Codigo</th>
                                             <th>Titulo</th>
                                             <th>Autor</th>
+                                            <th>Fecha Publicacion</th>
                                             <th>Genero</th>
-                                            <th>Codigo</th>
+                                            <th>Paginas</th>
+                                            <th>Editorial</th>
+                                            <th>ISSN</th>
+                                            <th>Idioma</th>
+                                            <th>Estado</th>
                                             <th>Precio</th>
+                                            <th>Accion</th>
                                         </tr>
                                     </thead>
                                     <tbody class="align-middle">
-                                        <tr>
-                                            <td>
-                                                <div class="img">
-                                                    <a href="#"><img src="img/product-6.jpg" alt="Image"></a>
-                                                    <p>Product Name</p>
-                                                </div>
-                                            </td>
-                                            <td>$99</td>
-                                            <td>
-                                                <div class="qty">
-                                                    <!-- <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                                    <input type="text" value="1">
-                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button> -->
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <!-- <button class="btn-cart">Add to Cart</button> -->
-                                            </td>
-                                            <td>
-                                                <!-- <button><i class="fa fa-trash"></i></button> -->
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="img">
-                                                    <a href="#"><img src="img/product-6.jpg" alt="Image"></a>
-                                                    <p>Product Name</p>
-                                                </div>
-                                            </td>
-                                            <td>$99</td>
-                                            <td>
-                                                <div class="qty">
-                                                    <!-- <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                                    <input type="text" value="1">
-                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button> -->
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <!-- <button class="btn-cart">Add to Cart</button> -->
-                                            </td>
-                                            <td>
-                                                <!-- <button><i class="fa fa-trash"></i></button> -->
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="img">
-                                                    <a href="#"><img src="img/product-7.jpg" alt="Image"></a>
-                                                    <p>Product Name</p>
-                                                </div>
-                                            </td>
-                                            <td>$99</td>
-                                            <td>
-                                                <div class="qty">
-                                                    <!-- <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                                    <input type="text" value="1">
-                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button> -->
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <!-- <button class="btn-cart">Add to Cart</button> -->
-                                            </td>
-                                            <td>
-                                                <!-- <button><i class="fa fa-trash"></i></button> -->
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="img">
-                                                    <a href="#"><img src="img/product-8.jpg" alt="Image"></a>
-                                                    <p>Product Name</p>
-                                                </div>
-                                            </td>
-                                            <td>$99</td>
-                                            <td>
-                                                <div class="qty">
-                                                    <!-- <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                                    <input type="text" value="1">
-                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button> -->
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <!-- <button class="btn-cart">Add to Cart</button> -->
-                                            </td>
-                                            <td>
-                                                <!-- <button><i class="fa fa-trash"></i></button> -->
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="img">
-                                                    <a href="#"><img src="img/product-9.jpg" alt="Image"></a>
-                                                    <p>Product Name</p>
-                                                </div>
-                                            </td>
-                                            <td>$99</td>
-                                            <td>
-                                                <div class="qty">
-                                                    <!-- <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                                    <input type="text" value="1">
-                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button> -->
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <!-- <button class="btn-cart">Add to Cart</button> -->
-                                            </td>
-                                            <td>
-                                                <!-- <button><i class="fa fa-trash"></i></button> -->
-                                            </td>
-                                        </tr>
+                                        <?php
+
+                                            $busqueda = isset($_POST['busqueda'])? $_POST['busqueda'] : '';
+
+                                            $consulta = "SELECT * FROM libros WHERE codigo_libro='$busqueda' OR titulo='$busqueda' OR autor='$busqueda' OR fecha_publicacion='$busqueda' OR genero_literario='$busqueda' OR numero_paginas='$busqueda' OR editorial='$busqueda' OR idioma='$busqueda' OR estado='$busqueda'";
+
+                                            $resultados = pg_query($conn,$consulta);
+
+                                            $respuesta = pg_num_rows($resultados);
+                                            while ($row = pg_fetch_array($resultados)) { ?>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="img">
+                                                        <a href="#"><img src= "<?php echo $row['imagen_portado'] ?>" ></a>
+                                                    </div>
+                                                </td>
+                                                <td><?php echo $row['codigo_libro'] ?></td>
+                                                <td><?php echo $row['titulo'] ?></td>
+                                                <td><?php echo $row['autor'] ?></td>
+                                                <td><?php echo $row['fecha_publicacion'] ?></td>
+                                                <td><?php echo $row['genero_literario'] ?></td>
+                                                <td><?php echo $row['numero_paginas'] ?></td>
+                                                <td><?php echo $row['editorial'] ?></td>
+                                                <td><?php echo $row['issn'] ?></td>
+                                                <td><?php echo $row['idioma'] ?></td>
+                                                <td><?php echo $row['estado'] ?></td>
+                                                <td><?php echo $row['precio'] ?></td>
+                                                <td>
+                                                    <a href="editar.php?codigo_libro= <?php echo $row['codigo_libro']?>" class="btn btn-secondary">
+                                                    <span class="material-icons-outlined">
+                                                    edit
+                                                    </span></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

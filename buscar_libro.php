@@ -1,6 +1,6 @@
 <?php 
 
-	include('conexion.php');
+	include('conexion_bd.php');
 
     $titulo = $_POST['titulo'];
 
@@ -8,20 +8,13 @@
 
     $resultados = pg_query($conn,$consulta);
 
-    $nr = pg_num_rows($resultados);
+    $respuesta = pg_num_rows($resultados);
 
-    if($nr==1)
-    {
-        echo"Libro encontrado!";
-    }
-    else if ($nr == 0)
-    {
-        echo"El libro no se encuentra!";
-    }
-
-    while ($resultado = pg_fetch_array($resultados)){
-
-        echo $resultado['codigo_libro']." ".$resultado['titulo']." ".$resultado['autor']." ".$resultado['fecha_publicacion']." ".$resultado['genero_literario']." ".$resultado['numero_paginas']." ".$resultado['editorial']." ".$resultado['issn']." ".$resultado['idioma']." ".$resultado['estado']." ".$resultado['precio']." ".$resultado['imagen_portado'] . "<br/>";
-    }
+    // if ($respuesta>=1) {
+    //     echo"Libro encontrado! <br/><br/>";
+    // }
+    // else {
+    //     echo"El libro no se encuentra!";
+    // }
 
 ?>

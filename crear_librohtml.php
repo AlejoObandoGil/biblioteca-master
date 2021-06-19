@@ -1,7 +1,6 @@
-<?php include ("conexion.php"); ?>
+<?php include ("conexion_bd.php"); ?>
     
 <!DOCTYPE html>
-
 <html lang="es">
     <head>
         <meta charset="utf-8">
